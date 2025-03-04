@@ -11,32 +11,35 @@
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        ListNode* head1 = new ListNode(0);
-        ListNode* head2 = head1;
+       // Create a new linked list to store result in
+       ListNode* calc = new ListNode(0); //init as 0
+       ListNode* header = calc; //Header to point to calc linked list
 
-        int carry = 0;
+        int carry = 0; // Create a carry variable to account for carry over
 
+       // Loop through the non-empty linked lists
+       // & Loop when carry not 0 to continue adding
        while(l1 != nullptr || l2 != nullptr || carry != 0){
-        int sum = carry;    // carried over
 
-        if (l1 != nullptr){
-            sum += l1->val;
-            l1 = l1->next;
-        }
+            int sum = carry;
 
-        if (l2 != nullptr){
-            sum += l2->val;
-            l2 = l2->next;
-        }
+            if(l1 != nullptr){
+                sum += l1->val;
+                l1 = l1->next;
+            }
 
-        carry = sum /10;
+            if(l2 != nullptr){
+                sum += l2->val;
+                l2 = l2->next;
+            }
 
-        head2->next = new ListNode(sum%10);
-        head2 = head2->next;
+            carry = sum/10;
+            header->next = new ListNode(sum % 10);
+            header = header->next;
+
        }
 
-       ListNode* result = head1->next;
-       delete head1;
+       ListNode* result = calc->next;
        return result;
     }
 };
