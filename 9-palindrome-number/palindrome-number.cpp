@@ -1,17 +1,19 @@
 class Solution {
 public:
     bool isPalindrome(int x) {
-        if(x<0) return false;
-
-        long long reversed = 0;
-        long long temp = x;
-
-        while(temp!=0){
-            int digit = temp%10;
-            reversed = reversed *10 + digit;
-            temp /=10;
+        stack<char> s;
+        string xStr = to_string(x);
+        
+        for(int i=0; i<xStr.length(); i++){
+            s.push(xStr[i]);
         }
+        for(int i=0; i<xStr.length(); i++){
+            char compare = s.top();
+            s.pop();
+            if(compare != xStr[i]) return false;
+        }
+       
 
-        return (reversed == x);
+        return true;
     }
 };
