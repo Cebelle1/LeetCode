@@ -1,6 +1,8 @@
 class Solution {
 public:
     bool isPalindrome(int x) {
+        //Negative numbers are not palindromes
+        if( x<0) return false;
         stack<char> s;
         string xStr = to_string(x);
         
