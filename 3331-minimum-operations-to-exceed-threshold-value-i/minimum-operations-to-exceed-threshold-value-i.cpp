@@ -3,12 +3,7 @@ public:
     int minOperations(vector<int>& nums, int k) {
         //sort array
         sort(nums.begin(), nums.end());
-        //=========
-        for(int n: nums){
-            std::cout<< n << " " ;
-        }
-        std::cout << std::endl;
-        //
+   
         //find index of the number that is >k
         auto it = find(nums.begin(), nums.end(), k);
         
