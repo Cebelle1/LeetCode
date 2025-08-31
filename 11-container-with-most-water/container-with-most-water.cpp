@@ -9,7 +9,7 @@ public:
 
         while(left<=right){
             curArea = min(height[left], height[right]) * (right-left);
-            std::cout << "area: " << curArea << std::endl;
+            
             maxArea = max(maxArea, curArea);
             if(height[left] < height[right]) left++;
             else right--;
