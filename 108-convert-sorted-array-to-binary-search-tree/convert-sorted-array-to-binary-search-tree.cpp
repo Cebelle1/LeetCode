@@ -13,7 +13,6 @@ class Solution {
 public:
     TreeNode* sortedArrayToBST(vector<int>& nums) {
         return build(nums, 0, nums.size()-1);
-        
     }
 
     TreeNode* build(vector<int>&nums, int left, int right){ //indexes
