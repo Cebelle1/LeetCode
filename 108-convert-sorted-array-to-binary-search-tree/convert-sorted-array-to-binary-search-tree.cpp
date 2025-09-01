@@ -26,6 +26,4 @@ public:
         return node;
     }
 
-    
-
 };
