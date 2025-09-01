@@ -31,6 +31,7 @@ public:
         return build(nums, 0, nums.size()-1);
     }
 
+private:
     TreeNode* build(vector<int> nums, int left, int right){
         if(left>right){
             return NULL;
