@@ -23,11 +23,10 @@ class Solution {
 public:
     TreeNode* sortedListToBST(ListNode* head) {
         if (head == NULL) return NULL;
-        ListNode* cur = head;
         vector<int> nums;
-        while(cur){
-            nums.push_back(cur->val);
-            cur=cur->next;
+        while(head){
+            nums.push_back(head->val);
+            head=head->next;
         }
         return build(nums, 0, nums.size()-1);
     }
