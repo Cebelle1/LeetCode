@@ -1,19 +1,17 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        // Two-pass hash table
-        // Convert vector into hash map
-        unordered_map<int, int> hash;
-        //While iterating, lets compute also
-        for(int i=0; i< nums.size(); i++){
-            int complement = target - nums[i];
-            if(hash.find(complement) != hash.end()){
-                return {hash[complement], i};
+        vector<int> result;
+        for(int i=0; i<nums.size()-1; i++){
+            for(int j=i+1; j<nums.size(); j++){
+                if(nums[i] + nums[j] == target){
+                    result.push_back(i);
+                    result.push_back(j);
+                    return result;
+                }
             }
-            hash[nums[i]] = i;
-            //std::cout << nums[i]<< ":" << hash[nums[i]] << std::endl;
         }
-
-        return {};
+        result.push_back(-1);
+        return result;
     }
 };
