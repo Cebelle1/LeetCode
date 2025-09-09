@@ -3,7 +3,7 @@ class MyHashSet {
     vector<vector<int>> buckets;
 
     int hash(int key) const{
-        return ((key%cap) + cap) % cap;
+        return (key + cap) % cap;
     }
 
 public:
